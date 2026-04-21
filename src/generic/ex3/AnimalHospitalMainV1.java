@@ -1,12 +1,12 @@
-package generic.problem.ex3;
+package generic.ex3;
 
 import generic.animal.Cat;
 import generic.animal.Dog;
 
-public class AnimalHospitalMainV3 {
+public class AnimalHospitalMainV1 {
     public static void main(String[] args) {
-        AnimalHospitalV3<Dog> dogHospital =  new AnimalHospitalV3<>();
-        AnimalHospitalV3<Cat> catHospital =  new AnimalHospitalV3<>();
+        AnimalHospitalV1 dogHospital = new AnimalHospitalV1();
+        AnimalHospitalV1 catHospital = new AnimalHospitalV1();
 
         Dog dog = new Dog("멍멍이1", 100);
         Cat cat = new Cat("나옹이1", 300);
@@ -19,12 +19,14 @@ public class AnimalHospitalMainV3 {
         catHospital.set(cat);
         catHospital.checkup();
 
-        //문제1: 개병원에 고양이가 전달될경우 - 오류남
-//        dogHospital.set(cat);
+        //문제1: 개병원에 고양이가 전달될경우 - 캄파일 오류 X
+        dogHospital.set(cat);
 
-        //문제2: 개타입 반환 - 캐스팅 필요 없음
+        //문제2: 개타입 반환 - 캐스팅 필요
         dogHospital.set(dog);
-        Dog biggerDog = dogHospital.getBigger(new Dog("멍멍이2", 200));
+        Dog biggerDog = (Dog) dogHospital.getBigger(new Dog("멍멍이2", 200));
         System.out.println("biggerDog = " + biggerDog);
+
+
     }
 }
