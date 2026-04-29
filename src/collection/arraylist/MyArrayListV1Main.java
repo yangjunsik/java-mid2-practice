@@ -1,4 +1,4 @@
-package array.arraylist;
+package collection.arraylist;
 
 public class MyArrayListV1Main {
 
